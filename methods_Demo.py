@@ -103,40 +103,137 @@
 #===== DELETION =========
 # we can delete static class anywehere by using the syntax
 #              del class_name.variable_name
+#
+# class student:
+#
+#     a=10 #static or class level variable
+#
+#     # constructor
+#     def __init__(self):
+#         print(self.a)
+#         # del student.a  #once we delete the static method then below that we can't use it beacuse python is interprated lang
+#                          # so below constrictor we will not able to use static variabel a but in constructor we can use
+#
+#
+#  # instance method
+#     def m1(self):
+#         print(self.a)
+#         print(student.a)
+#
+#     @classmethod
+#     def m2(cls):
+#         print(cls.a)
+#         print(student.a)
+#
+#     @staticmethod
+#     def m3():
+#         print(student.a)
+#
+#
+# # implementation of where and how we can access static methods
+#
+# s = student()
+# s.m1()
+# s.m2()
+# s.m3()
+# print(s.a)
 
-class student:
 
-    a=10 #static or class level variable
+#                   INNER CLASS
+# -------------------------------------------------------------------
+# without existence of one type of object there is no chance of existence of the other type of onject
+# then we go for inner class
+#  class car:
+#      code...:
+#
+#          class engine:
+#              code....:
 
-    # constructor
-    def __init__(self):
-        print(self.a)
-        # del student.a  #once we delete the static method then below that we can't use it beacuse python is interprated lang
-                         # so below constrictor we will not able to use static variabel a but in constructor we can use
-        
-
- # instance method
-    def m1(self):
-        print(self.a)
-        print(student.a)
-
-    @classmethod
-    def m2(cls):
-        print(cls.a)
-        print(student.a)
-
-    @staticmethod
-    def m3():
-        print(student.a)
+# class car:
+#     def __init__(self):
+#         print("outer class constructor")
+#
+#     class engine:
+#
+#         def __init__(self):
+#             print("inner class constructor")
+#
+#         def m1(self):
+#             print("inner method")
 
 
-# implementation of where and how we can access static methods
+#  1st way of calling inner and outer class
 
-s = student()
-s.m1()
-s.m2()
-s.m3()
-print(s.a)
+# c = car()
+# e = c.engine()
+# e.m1()
+
+#  2nd way of calling inner and outer class
+# e = car().engine()
+# e.m1()
+
+#  3rd way of calling inner and outer class
+# car().engine().m1()
+
+#               GARBAGE COLLECTOR
+# ----------------------------------------------------------
+
+# AMM :- Automatic memory management
+# do cleanup activity (allocation and deallocation of memory)
+# internally it uses desctructor for cleaning purpose
+# desctructor name is: __del__(self) : use to perform deletion of used memory space by objects
+# GC will call desctructor for cleanup activity
+# after completion of desctructor work GC will destroy the unused object
 
 
+#==== METHODS FOR GC:==========
 
+# isenabled(): it is a function which returns true if the garbage collector is active and false when it is inactive
+# disable(): to diable GC explicitly
+# enable(): to enable GC explicitly
+
+
+# import gc
+# print(gc.isenabled())
+# gc.disable()
+# print(gc.isenabled())
+# gc.enable()
+# print(gc.isenabled())
+
+
+#               ACCESS MODIFIER OF VARIBLES
+# -----------------------------------------------------------------------
+# By default every variable in python is public variables : anywhere we can access
+#     eg: x = 10
+
+# Variable that starts with single underscore(_) is known as protected variables: we can access within the class where it is decalred or in the child class of it
+#    eg: _y = 20
+
+# Variable that starts with double underscore(__) is known as private variables: only can access within the class
+#    eg: __z = 30
+
+class parent:
+    x = 10 # public variable
+    _y = 20 # protected variable
+    __z = 30 # private variable
+
+    # def __init__(self):
+    #     print(self.x)
+    #     print(self._y)
+    #     print(self.__z)
+
+
+# t = parent()
+# print("outside the class")
+# print(t.x)
+# print(t._y)
+
+# can't accessed outside the class
+# print(t.__z)
+
+class child(parent):
+    print("inside child class")
+    print(parent.x)
+    print(parent._y)
+
+c = child()
