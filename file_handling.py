@@ -58,9 +58,15 @@
 #       eg: os.path.isFile(filename)
 
 
+#========= ZIP OR RAR FILE  ==============
+# ZIP AND UNZIP OPEARTION: all file made into one folder
+# 1. fileObject = ZipFile("filename.zip","w",ZIP_DEFLATED) for zip operation
+# 2. fileObject = ZipFile("filename.zip","r",ZIP_STORED) for unzip opeartion
 
+#========= CSV(comma seperated value) FILE  ==============
 
-
-
-
-
+# data will be in table format
+# format is excel sheet
+# store data in excel sheet type
+# w = writer(): to write data in csv file
+# r = reader(): to read data from csv file
