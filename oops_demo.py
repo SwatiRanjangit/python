@@ -171,24 +171,38 @@
 # print("total book: ", b + b1)
 
 #===================== OVERRIDDING ================
-class Parent:
-    def assets(self):
-        print("gold , silver, diamond")
+#------------------ Method overriding--------
 
-    def car(self):
-        print("car ")
+# class Parent:
+#     def assets(self):
+#         print("gold , silver, diamond")
+#
+#     def car(self):
+#         print("car ")
+#
+# class Child(Parent):
+#     def jwel(self):
+#         print("jwellery is there")
+#
+#     def car(self):
+#         super().car() # in child classs want to access the parent class merthod as well then it can be accessed by using super keyword
+#         print("mercedes Benz")
+#
+# c = Child()
+# c.assets()
+# c.car()
+# c.jwel()
+
+
+#------------------ Constructor overriding--------
+class Parent:
+    def __init__(self):
+        print("parent class constructor")
+
 
 class Child(Parent):
-    def jwel(self):
-        print("jwellery is there")
-
-    def car(self):
-        super().car() # in child classs want to access the parent class merthod as well then it can be accessed by using super keyword
-        print("mercedes Benz")
+    def __init__(self):
+        super().__init__()
+        print("child class constructor")
 
 c = Child()
-c.assets()
-c.car()
-c.jwel()
-
-
