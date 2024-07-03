@@ -50,6 +50,9 @@
 # constructor execute automatically when object is created
 # we can create any number of objects and for each object constructor will be execute once
 # if we don't define self in the function parameter the first argument is by default made as self
+# in inheritence if the class doen't have constructor and we create it's object the it will look for it's parent class contructor
+# and it's parent class constructor will be printed
+
 
 
 # ==================== METHODS ======================================

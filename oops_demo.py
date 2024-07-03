@@ -120,21 +120,75 @@
 #                   MULTIPLE INHERITENCE (using MRO (method resolution order))
 # --------------------------------------------------------------------------------------
 # order will be left to right
-class A:
-    def f1(self):
-        print("f1")
-    # pass
+# class A:
+#     def f1(self):
+#         print("f1")
+#     # pass
+#
+# class B:
+#     def f1(self):
+#         print("f2")
+#
+# class C(A, B):
+#     def f3(self):
+#         print("f3")
 
-class B:
-    def f1(self):
-        print("f2")
-
-class C(A, B):
-    def f3(self):
-        print("f3")
-
-c = C() # if two class have same function name then the order of execution of that function will be depend on the child
+# c = C() # if two class have same function name then the order of execution of that function will be depend on the child
 # class inherited order if it is like C(A,B) then A class function will execute and vice versa
-c.f1()
-c.f3()
+# c.f1()
+# c.f3()
 # c.f2()
+
+#                       POLYMORPHISM
+# -------------------------------------------------------------------------------
+# static or compile time polymorphism in python:
+# 1. operator overloading -- yes
+# 2. constructor overloading -- not possible in python
+# 3. method overloading -- not possible in python cz python is interpreted language and hence when it starts
+# executing the program it will first check the fucntion call if it match then goes down if 3 function having
+# same name then the last one will be called and if last fucntion took 2 arguments and we are calling function without
+# any arguments then it will throw error
+
+
+# dynamic or run time polymorphism
+#1.  method overriding --yes
+# 2. contructor overriding -- yes
+
+#NOTE: in python every operator is having magic methods
+
+# OPEARTOR OVERLOADING EXAMPLE: adding two reference
+
+# class Book:
+#     def __init__(self,page):
+#         self.page=page
+#
+#     def __add__(self, other):
+#         return self.page+other.page
+#
+#
+# b = Book(30)
+# b1 = Book(20)
+# print("total book: ", b + b1)
+
+#===================== OVERRIDDING ================
+class Parent:
+    def assets(self):
+        print("gold , silver, diamond")
+
+    def car(self):
+        print("car ")
+
+class Child(Parent):
+    def jwel(self):
+        print("jwellery is there")
+
+    def car(self):
+        super().car() # in child classs want to access the parent class merthod as well then it can be accessed by using super keyword
+        print("mercedes Benz")
+
+c = Child()
+c.assets()
+c.car()
+c.jwel()
+
+
