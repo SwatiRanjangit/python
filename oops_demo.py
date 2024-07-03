@@ -1,7 +1,11 @@
+from abc import *
+
 #           ENCAPUSLATION
 # ------------------------------------------------------------------
 # achieve by making  private methods   or private variables if we want to no one access in the code
 # private method: can acessed within the class and if we wnat to access outside we can access by constructor
+
+
 
 # class car:
 #     def __init__(self):
@@ -195,14 +199,61 @@
 
 
 #------------------ Constructor overriding--------
-class Parent:
-    def __init__(self):
-        print("parent class constructor")
+# class Parent:
+#     def __init__(self):
+#         print("parent class constructor")
+#
+#
+# class Child(Parent):
+#     def __init__(self):
+#         super().__init__()
+#         print("child class constructor")
+#
+# c = Child()
 
 
-class Child(Parent):
-    def __init__(self):
-        super().__init__()
-        print("child class constructor")
+#                  ABSTRACTION
+# ------------------------------------------------------------------
+#              ----- ABSTRACT METHODS -----
 
-c = Child()
+# methods that doesn't have implementation ..it is only declared in the class
+# to create a method as abstract we use @abstractmethod decorator
+# to leave abstract method without implementation we use pass keyword inside the method in python
+
+#              ----- ABSTRACT CLASS -----
+# class which contains one or more abstract methods and it can have non abstract methods
+# to make any class as a abstract class we need to extend  that class from predefined class ABC class
+# ABC class and @abstractmethod decorator are present in abc module in python
+# we can not make any object from abstract class because it is partial implemented class we need to make a child class of
+# it where the implementation all (compulsory to implement all) of those abstract methods is defined and then we can call it
+
+# fully implemeted class --- Concrete class
+# Partial implemeted class --- Abstract class
+# no implemeted class --- Interface
+
+class Vehicle(ABC):
+    @abstractmethod
+    def wheels(self):
+        pass
+
+    def type(self):
+        print("vehicle")
+
+
+class Car(Vehicle):
+    def wheels(self):
+        print("4 wheels ")
+
+class Scooter(Vehicle):
+    def wheels(self):
+        print("2 wheels ")
+
+c = Car()
+c.wheels()
+c.type()
+s = Scooter()
+s.wheels()
+s.type()
+
+
+
