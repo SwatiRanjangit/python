@@ -12,6 +12,7 @@
 # 1. User defined execptions
 # 2. predefined execptions
 
+#------------------ PRE-DEFINED EXCEPTIONS ----------------------
 # NOTE: IN PYHTON EACH EXCEPTION IS A CLASS
 # NAME error , Value error, fileNotFound error, ZeroDivision error : BUILT IN exception
 
@@ -96,4 +97,45 @@
 #     print("outer except")
 # finally:
 #     print("outer finally")
+
+#------------------ USER-DEFINED EXCEPTIONS ----------------------
+# by using raise we can use our user defined execptions inside the code
+class ToYoungExecption(Exception):
+    def __init__(self,msg):
+        self.msg=msg
+
+class ToOldExecption(Exception):
+    def __init__(self,msg):
+        self.msg=msg
+#
+# age = int(input("Enter your age: "))
+#
+# if age >= 60:
+#     raise ToOldExecption("Age should not be greater than or equal 60..it's too old for this")
+# elif age <= 16:
+#     raise ToYoungExecption("Age should not be less than or equal 16..it's too young for this")
+# else:
+#     print("eligible to take scholorship.")
+
+try:
+    age = int(input("Enter your age: "))
+
+    if age >= 60:
+        raise ToOldExecption("Age should not be greater than or equal 60..it's too old for this")
+    elif age <= 16:
+        raise ToYoungExecption("Age should not be less than or equal 16..it's too young for this")
+    else:
+        print("eligible to take scholorship.")
+except Exception as msg:
+    print(msg)
+# except (ToYoungExecption,ToOldExecption) as msg:
+#     print(msg)
+
+
+
+
+
+
+
+
 
