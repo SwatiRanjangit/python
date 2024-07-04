@@ -511,4 +511,6 @@ l = [30, 20, 1, 78, 54]
 # print(sqrt(2))
 # print(pow(2,2))
 # print(sin(0))
+print("hello")
+print("welcome")
 
