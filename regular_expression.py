@@ -12,13 +12,20 @@
 
 # 1. compile(): use to compile a pattern into regex object
 # 2. finditer(): use to find iteration of match object
+# 3. match() : use to match string from the start index if matched return true either false
+# 4. fullmatch() : use to match the string fully with the pattern if fully matched return true
+# 5. search() : USE TO SEARCH THE PATTERN ANYWHERE IN THE STRING ANd if matched return it
+# 6. findall() : use to find all occurences of the match pattern and return list of matched objects
+# 7. sub() : use to replace the  string into target string
+# 8. subn() : return also number of time of replacement
+# 9. split() : split the string according to pattern
 
 # ON MATCH METHODS WE CAN APPLY THESE METHODS:
 # 1. start(): return start index of the match
 # 2. end(): return end+1 index of the match
 # 3. group(): return the matched string
 
-# 3.
+
 
 
 
@@ -44,6 +51,7 @@
 # \D : any character except digits
 # \w : any word character [a-zA-Z0-9]
 # \W : any word character except [a-zA-Z0-9]
+# .(dot) : any character including special character
 
 
 #                   QUANTIFIERS
@@ -55,3 +63,9 @@
 # a? : at most one a either 0 or 1 a
 # a{m} : exaclty m number of a
 # a{m,n} : minimum m number of a and maximum n number of a
+
+
+
+# ^ synmbol: to check whether the given target string start with our provided string ot not
+# $ symbol: to check whether the given target string end with our provided string ot not
+# NOTE: these symbol(^,$) works with search fucntion only
