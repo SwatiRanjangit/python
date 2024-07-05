@@ -46,3 +46,14 @@
 # same thread which acquired the lock the that thread can acquire lock any time
 # but if other thread try then it will block those thread
 # it has info which thread acquired lock or not
+
+#3. SEMAPHORE:
+# when we want to lock aquire by more than one thread then we use semaphore
+# as with use of lock and rlock oly one thread can acquire lock at the time
+# s= Semaphore(counterpart) by default counterpart=1 and it can as many as user want that number of threads execute at a time
+# every acquire method counterpart is increase by 1
+# every release method counterpart is decreased by 1
+# in noram semaphore we can call any number time release method and it will increase accquire emthod wheter it is not required
+# so we use bounded semaphore it will probhit from this type of prgamatic mistake.both acquire adn release will called same time
+
+# s = BoundedSemaphore(3)
