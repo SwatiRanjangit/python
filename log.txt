@@ -1,0 +1,18 @@
+WARNING:root:this is warning message
+ERROR:root:this is error meassage
+CRITICAL:root:this is crtical message
+DEBUG:root:this is debug message
+WARNING:root:this is warning message
+ERROR:root:this is error meassage
+CRITICAL:root:this is crtical message
+INFO:root:this is info message
+INFO:root:A new message request
+INFO:root:A new message request
+INFO:root:Request processed completly
+INFO:root:A new message request
+ERROR:root:division by zero
+Traceback (most recent call last):
+  File "C:\Users\Swati Ranjan\PycharmProjects\pythonProject1\log_file_demo.py", line 9, in <module>
+    print("result is: ",a/b)
+ZeroDivisionError: division by zero
+INFO:root:Request processed completly
